@@ -1,32 +1,25 @@
-# Project Guusto
+# Athenas Back-end e Front-end
 
 Languages:
-Angular, Spring Boot, Postgres, Docker
+Angular, Spring Boot, Mysql, Docker
 
 Structure:
 
-/                              -- Root 
+/                              -- Raiz
 
-/docker/volume_postgres        -- Volume for Postgres
+/docker/volume_mysql       -- Volume do Mysql
 
-/fontes/AppGuusto              -- Spring Boot Api
+/fontes/AppBack              -- Spring Boot Api
 
-/fontes/guusto-client-angular  -- Angular Client
+/fontes/AppFront             -- Cliente construido em Angular
 
 
-Steps to start application
+Passos para iniciar
 
-1. In the root directory ( / ), start the container: docker-compose up --build --force-recreate
-2. In the Angular Client directory ( /fontes/guusto-client-angular ), start project: ng serve
+1. No Docker Composer, comente as imagens deixando apenas ao do mysql
+2. No diretorio raiz( / ), inicie o container: docker-compose up --build --force-recreate
+3. Rode o maven para gerar o target no diretorio fontes/AppBack
+4. Volte do Docker-Composer e Remova os comentarios de todas imagens
+5. Inicie novamente o conteiner (Passo 2)
 
-Test unblocked endpoint: http://localhost:8080/app/
-
-The message "ok" will appear on the screen
-
-Open browser in http://localhost:4200
-
-username: admin
-
-password: admin123
-
-You can search for name and/or country
+Abra no navegador o endereço: http://localhost:4200
