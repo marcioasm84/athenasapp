@@ -1,0 +1,14 @@
+docker-compose up --build --force-recreate
+
+docker ps -a
+
+docker container prune
+
+docker network rm sympla_network_geral
+
+docker network create --subnet=172.172.172.0/24 --gateway=172.172.172.1 --attachable sympla_network_geral
+
+
+
+docker-compose exec -T thefrozenhearth_php php artisan test
+
