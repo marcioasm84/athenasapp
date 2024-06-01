@@ -15,23 +15,24 @@ services:
     networks:
       - db-network
 
-  spring_boot_com_mysql:
+  athenas-appback:
     build:
-      context: ./fontes/AppBack
-      dockerfile: ../../Dockerfile
-    image: spring_boot_com_mysql/api      
+      context: ./fontes/AppBack/AppBack
+      dockerfile: ./Dockerfile
+    image: athenas_appback/api
     ports:
       - '8080:8080'
       - '5005:5005'
     environment:
       - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
-      - PROFILE=dev
+      - PROFILE=docker
     depends_on:
       - db
     networks:
       - db-network
-    restart: on-failure      
-  angular-docker:
+    restart: on-failure     
+
+  athenas-angular-docker:
     build:
       context: ./fontes/AppFront
       dockerfile: ./Dockerfile

@@ -1,11 +1,13 @@
 spring:
+  profiles:
+    active: local
   application:
     name: appback
     
-  datasource:
-    url:  jdbc:mysql://localhost:3306/athenas
-    username: root
-    password: 'athenas123'
+  #datasource:
+  #  url:  jdbc:mysql://db:3306/athenas
+  #  username: root
+  #  password: 'athenas123'
   jpa:
     hibernate:
       ddl-auto: update
@@ -15,6 +17,5 @@ spring:
     properties:
       hibernate:
         show_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
         
-
-
